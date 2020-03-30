@@ -6,35 +6,42 @@ const port = process.env.PORT || 3000;
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
-  req = unirest(
-    "GET",
-    "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats"
-  );
+  req = unirest("GET", "https://covid-193.p.rapidapi.com/statistics");
 
   req.query({
     country: "Philippines"
   });
 
   req.headers({
-    "x-rapidapi-host": "covid-19-coronavirus-statistics.p.rapidapi.com",
+    "x-rapidapi-host": "covid-193.p.rapidapi.com",
     "x-rapidapi-key": "4abdada55emsh1abb2a297e1cf04p1afdf4jsn0fa111ea8092"
   });
 
   req.end(function(response) {
     if (response.error) throw new Error(response.error);
+    console.log(response.body);
+    var casesString = JSON.stringify(response.body.response[0].cases);
+    var deathsString = JSON.stringify(response.body.response[0].deaths);
+    var casesJSON = JSON.parse(casesString);
+    var deathsJSON = JSON.parse(deathsString);
+    var activeCases = casesJSON.active;
+    var recoveredCases = casesJSON.recovered;
+    var totalCases = casesJSON.total;
+    var deaths = deathsJSON.total;
+    var newCases = casesJSON.new;
+    var newDeaths = deathsJSON.new;
+    var day = response.body.response[0].day;
+    var lastUpdate = response.body.response[0].time;
 
-    var statsstring = JSON.stringify(response.body.data.covid19Stats);
-    var stats = JSON.parse(statsstring);
-    var confirmed = stats[0].confirmed;
-    var deaths = stats[0].deaths;
-    var recovered = stats[0].recovered;
-    var lastUpdate = stats[0].lastUpdate;
-    console.log(stats, confirmed, deaths, recovered, lastUpdate);
     res.render("index", {
-      confirmed: confirmed,
-      deaths: deaths,
-      recovered: recovered,
-      lastUpdate: lastUpdate
+      activeCases,
+      recoveredCases,
+      totalCases,
+      deaths,
+      newCases,
+      newDeaths,
+      day,
+      lastUpdate
     });
   });
 });

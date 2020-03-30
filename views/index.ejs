@@ -13,10 +13,14 @@
 
 <body>
     <div class="container">
-        <h1>Number of confirmed cases: <%= confirmed %></h1>
+        <h1>Number of active cases: <%= activeCases %></h1>
+        <h1>Number of recovered cases: <%= recoveredCases %></h1>
         <h1>Number of deaths: <%= deaths %></h1>
-        <h1>Number of recovered cases: <%= recovered %></h1>
+        <h1>Number of total cases: <%= totalCases %></h1>
+        <h1>For <%= day %>, <%= newCases %> added number of cases and <%= newDeaths %> added number of deaths.</h1>
         <h1>Last updated on: <%= lastUpdate %></h1>
+
+        <p>For the documentation of the API used:</p><a href= https://api-sports.io/documentation/covid-19> https://api-sports.io/documentation/covid-19</a>
     </div>
 </body>
 
