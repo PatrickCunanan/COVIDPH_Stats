@@ -1,6 +1,7 @@
 const unirest = require("unirest");
 const express = require("express");
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.set("view engine", "ejs");
 
@@ -27,6 +28,6 @@ app.get("/", function(req, res) {
   });
 });
 
-app.listen(3000, function() {
+app.listen(port, function() {
   console.log("COVIDPh Simple Stats server is running.");
 });
