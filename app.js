@@ -20,6 +20,20 @@ app.get("/", function(req, res) {
   req.end(function(response) {
     if (response.error) throw new Error(response.error);
     console.log(response.body);
+    const monthNames = [
+      "JANUARY",
+      "FEBRUARY",
+      "MARCH",
+      "APRIL",
+      "MAY",
+      "JUNE",
+      "JULY",
+      "AUGUST",
+      "SEPTEMBER",
+      "OCTOBER",
+      "NOVEMBER",
+      "DECEMBER"
+    ];
     var casesString = JSON.stringify(response.body.response[0].cases);
     var deathsString = JSON.stringify(response.body.response[0].deaths);
     var casesJSON = JSON.parse(casesString);
@@ -30,8 +44,14 @@ app.get("/", function(req, res) {
     var deaths = deathsJSON.total;
     var newCases = casesJSON.new;
     var newDeaths = deathsJSON.new;
-    var day = response.body.response[0].day;
-    var lastUpdate = response.body.response[0].time;
+    var dayDateItem = new Date(response.body.response[0].day);
+    var day =
+      monthNames[dayDateItem.getMonth()] +
+      " " +
+      dayDateItem.getDate() +
+      " " +
+      dayDateItem.getFullYear();
+    var lastUpdate = new Date(response.body.response[0].time);
 
     res.render("index", {
       activeCases,
