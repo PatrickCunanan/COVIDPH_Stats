@@ -9,16 +9,16 @@
 </head>
 
 <body>
-    <div class="container-fluid" style="display: flex; justify-content: center; align-items: center; height: 100vh">
+    <div class="container-fluid" style="display: flex; justify-content: center; align-items: center; height: 75vh; width: 75vh;">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 col-xs-12">
                 <h3 class="text-center">
                     COVID-19 CASES IN THE PHILIPPINES
                 </h3>
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-8 col-xs-12">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-xs-12">
                                 <div class="card text-center text-white bg-info">
                                     <h3 class="card-header">
                                         <%= activeCases %>
@@ -30,7 +30,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-xs-12">
                                 <div class="card text-center text-white bg-success">
                                     <h3 class="card-header">
                                         <%= recoveredCases %>
@@ -42,7 +42,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-xs-12">
                                 <div class="card text-center text-white bg-danger">
                                     <h3 class="card-header">
                                         <%= deaths %>
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-xs-12">
                         <div class="card text-center text-white bg-warning">
                             <h3 class="card-header">
                                 <%= totalCases %>
@@ -76,7 +76,7 @@
                             ADDITIONAL CASES AS OF: <%= day %>
                         </h3>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6 col-xs-12">
                                 <div class="card text-center text-white bg-warning">
                                     <h3 class="card-header">
                                         <%= newCases %>
@@ -88,7 +88,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 col-xs-12">
                                 <div class="card text-center text-white bg-danger">
                                     <h3 class="card-header">
                                         <%= newDeaths %>
