@@ -3,122 +3,108 @@
 
 <head>
     <meta charset="utf-8">
-    <title>CovidPH Stats (Alpha)</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>COVIDPh Stats</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.min.css?h=716ef6782bea738733afee46d8292615">
 </head>
 
 <body>
-    <div class="container-fluid" style="display: flex; justify-content: center; align-items: center; height: 100vh">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="text-center">
-                    COVID-19 CASES IN THE PHILIPPINES
-                </h3>
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card text-center text-white bg-info">
-                                    <h3 class="card-header">
-                                        <%= activeCases %>
-                                    </h3>
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            ACTIVE
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card text-center text-white bg-success">
-                                    <h3 class="card-header">
-                                        <%= recoveredCases %>
-                                    </h3>
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            RECOVERED
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card text-center text-white bg-danger">
-                                    <h3 class="card-header">
-                                        <%= deaths %>
-                                    </h3>
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            DEATHS
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+    <!-- Start: Navigation Clean -->
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color: rgb(35,35,35);color: rgb(255,255,255);">
+        <div class="container"><a class="navbar-brand" href="#" style="color: rgb(255,255,255);">COVIDPH Stats</a><button data-toggle="collapse" class="navbar-toggler bg-white" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon" style="color: rgb(207,207,207);"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="https://api-sports.io/documentation/covid-19" style="color: rgb(255,255,255);">API Documentation</a></li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <!-- End: Navigation Clean -->
+    <h4 style="padding: 15px;">Current statistics of COVID-19 in the Philippines:</h4>
+    <!-- Start: 1 Row 4 Columns -->
+    <div style="margin: 10px;">
+        <div class="container" style="padding: 15px;">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card" style="padding-bottom: 5px;">
+                        <div class="card-header text-center" style="background-color: #ffc700;color: rgb(255,255,255);">
+                            <h5 class="mb-0" style="font-size: 15px;">Active Cases</h5>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card text-center text-white bg-warning">
-                            <h3 class="card-header">
-                                <%= totalCases %>
-                            </h3>
-                            <div class="card-body">
-                                <p class="card-text">
-                                    OVERALL TOTAL CASES
-                                </p>
-                            </div>
+                        <div class="card-body">
+                            <p class="text-center card-text" style="font-size: 36px;"><%= activeCases %></p>
                         </div>
                     </div>
                 </div>
-                <hr />
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3 class="text-center">
-                            ADDITIONAL CASES AS OF: <%= day %>
-                        </h3>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card text-center text-white bg-warning">
-                                    <h3 class="card-header">
-                                        <%= newCases %>
-                                    </h3>
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            NEW CASES
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card text-center text-white bg-danger">
-                                    <h3 class="card-header">
-                                        <%= newDeaths %>
-                                    </h3>
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            NEW DEATHS
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-md-3">
+                    <div class="card" style="padding-bottom: 5px;">
+                        <div class="card-header text-center" style="background-color: #00c508;color: rgb(255,255,255);">
+                            <h5 class="mb-0" style="font-size: 15px;">Recovered</h5>
                         </div>
-                        <hr /><span class="badge badge-info">Last updated on: <%= lastUpdate %></span> <span
-                            class="badge badge-success">For the documentation of the API used:<a
-                                href=https://api-sports.io/documentation/covid-19>
-                                https://api-sports.io/documentation/covid-19</a></span>
+                        <div class="card-body">
+                            <p class="text-center card-text" style="font-size: 36px;"><%= recoveredCases %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card" style="padding-bottom: 5px;">
+                        <div class="card-header text-center" style="background-color: #ea0e00;color: rgb(255,255,255);">
+                            <h5 class="mb-0" style="font-size: 15px;">Total Deaths</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-center card-text" style="font-size: 36px;"><%= deaths %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card" style="padding-bottom: 5px;">
+                        <div class="card-header text-center" style="background-color: #0066c3;color: rgb(255,255,255);">
+                            <h5 class="mb-0" style="font-size: 15px;">Total Cases</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-center card-text" style="font-size: 36px;"><%= totalCases %></p>
+                        </div>
                     </div>
                 </div>
             </div>
+            <hr>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <!-- End: 1 Row 4 Columns -->
+    <h4 style="padding: 15px;">Additional cases as of: <%= day %>&nbsp;</h4>
+    <h6 style="padding: 15px;">Last updated on: <%= lastUpdate %>&nbsp;</h6>
+    <!-- Start: 1 Row 2 Columns -->
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card" style="padding-bottom: 5px;">
+                        <div class="card-header text-center" style="background-color: #ffc700;color: rgb(255,255,255);">
+                            <h6 class="mb-0">New Cases</h6>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-center card-text" style="font-size: 36px;"><%= newCases %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card" style="padding-bottom: 5px;">
+                        <div class="card-header text-center" style="background-color: #ea0e00;color: rgb(255,255,255);">
+                            <h6 class="mb-0">New Deaths</h6>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-center card-text" style="font-size: 36px;"><%= newDeaths %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <!-- End: 1 Row 2 Columns -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
